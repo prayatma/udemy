@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -21,6 +22,7 @@ mongoose.connect('mongodb+srv://nick:eVSxF5Ok5GPbn20Y@cluster0-tl3ej.mongodb.net
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/upload', express.static(path.join('upload')));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
