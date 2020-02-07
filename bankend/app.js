@@ -11,8 +11,9 @@ mongoose.set('useUnifiedTopology', true);
 const app = express();
 
 const postRoutes = require('./routes/posts');
+const userRoutes = require('./routes/user');
 
-mongoose.connect('mongodb+srv://nick:eVSxF5Ok5GPbn20Y@cluster0-tl3ej.mongodb.net/node-angular?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://nick:eVSxF5Ok5GPbn20Y@cluster0-tl3ej.mongodb.net/node-angular?&w=majority')
 .then( () => {
   console.log('Connected to database!');
 })
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/posts", postRoutes);
+app.use("/api/user", userRoutes);
 
 
 module.exports = app;
