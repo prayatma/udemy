@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
   isLoading = false;
 
-  constructor (public authServie: AuthService){}
+  constructor(public authServie: AuthService) {}
 
   ngOnInit() {
   }
@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
     if (form.invalid) {
       return;
     }
+    this.isLoading = true;
     this.authServie.createUser(form.value.email, form.value.password);
   }
 
